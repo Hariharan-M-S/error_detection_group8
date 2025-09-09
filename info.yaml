@@ -1,5 +1,5 @@
 # Tiny Tapeout project information
-project:         "SRM-IST"
+project:        
   title:        "Single-Cycle Adaptive Header Auto-Detection and Error Correction Core"
   author:       "Your Name"        # Replace with your name
   discord:      "YourDiscord#1234" # Optional, replace with your Discord username if any
