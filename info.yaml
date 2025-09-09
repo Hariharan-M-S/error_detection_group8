@@ -1,17 +1,15 @@
 # Tiny Tapeout project information
 project:        
   title:        "Single-Cycle Adaptive Header Auto-Detection and Error Correction Core"
-  author:       "Your Name"        # Replace with your name
-  discord:      "YourDiscord#1234" # Optional, replace with your Discord username if any
+  author:       "Team8"        # Replace with your name
+  discord:      "Discord#1234" # Optional, replace with your Discord username if any
   description:  "Adaptive header detection and error correction for communication protocols"
   language:     "Verilog"
   clock_hz:     5000000             # Approximate clock frequency in Hz (e.g., 5 MHz clk_auto)
   tiles:        "1x1"
   top_module:   "auto_tb"           # Your top-level testbench or module (use the actual top Verilog module)
   source_files:
-    - "header_gen.v"
-    - "cmp32.v"
-    - "auto_tb.v"
+    - "project.v"
 
 # Pinout section - leave all pins blank if your project does not use external pins
 pinout:
