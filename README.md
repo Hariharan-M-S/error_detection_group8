@@ -1,41 +1,68 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+# Single-Cycle Adaptive Header Auto-Detection and Error Correction Core
 
-- [Read the documentation for project](docs/info.md)
+   
 
 ## What is Tiny Tapeout?
 
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
+Tiny Tapeout is an educational project that makes it easier and cheaper than ever to get your digital and analog designs fabricated on a real chip. To learn more and get started, visit [https://tinytapeout.com](https://tinytapeout.com).
 
-To learn more and get started, visit https://tinytapeout.com.
+## Project Description
 
-## Set up your Verilog project
+This project implements a **single-cycle adaptive header auto-detection and error correction core** for modern communication protocols. It uses:
 
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
+- A **header generator** that produces a 32-bit sequence from a 5-bit preamble using XOR feedback shift register logic.
+- A **32-bit comparator module** with error detection providing 2-bit output code for matching status.
+  
+The design is intended for robust detection and correction of protocol headers in digital communication systems.
 
-The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
+## Project Structure
 
-## Enable GitHub actions to build the results page
+- Verilog source files are located in the `src` directory.
+- The main modules are `header_gen` and `cmp32`.
+- Testbench is available under `test/` using Verilog and also adapted for Cocotb Python tests for flexible simulation.
 
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+## How to Set Up and Run
+
+1. Add Verilog source files to the `src/` folder if you modify or add modules.
+2. Confirm or update the `top_module` and `source_files` fields in `info.yaml` to point to your files and top module.
+3. Edit documentation in `docs/info.md` to explain your design clearly.
+4. Use the provided testbench or Cocotb test scripts located in the `test/` folder for simulation.
+5. The GitHub Actions workflow will run OpenLane to build ASIC files automatically.
+
+## Running the Testbench
+
+- Use the Verilog testbench `auto_tb.v` to simulate your design with ModelSim, Icarus Verilog, or any compatible simulator.
+- Alternatively, run python-based Cocotb tests with:
+
+  ```bash
+  make sim
+  ```
+
+  (Ensure Python cocotb and dependencies are installed.)
 
 ## Resources
 
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
+- [Tiny Tapeout FAQ](https://tinytapeout.com/faq/)
+- [Digital Design Lessons](https://tinytapeout.com/digital_design/)
+- [Learn Semiconductor Basics](https://tinytapeout.com/siliwiz/)
+- [Community Discord](https://tinytapeout.com/discord)
+- [Local Build Guide](https://www.tinytapeout.com/guides/local-hardening/)
 
-## What next?
+## Next Steps
 
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)
+- Submit your design to the Tiny Tapeout shuttle for fabrication:  
+  [https://app.tinytapeout.com/](https://app.tinytapeout.com/)
+- Customize this README with your own explanations and test instructions.
+- Share your project on social platforms with the hashtag #tinytapeout.
+
+  Connect and share on:
+  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout)
+  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout)
+  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout)
+
+***
+
+This structured README follows the Tiny Tapeout example format and guides users through setup, testing, and project sharing while preserving your project-specific details. Let me know if you want a more detailed guide or file examples!
+
+[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/55316439/66a70ad2-a993-46f8-a9c0-69d9e7753218/CHIP-PRACTICE-BOOTCAMP-GROUP-8.pdf)
