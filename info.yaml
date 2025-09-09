@@ -7,7 +7,7 @@ project:
   language:     "Verilog"
   clock_hz:     5000000             # Approximate clock frequency in Hz (e.g., 5 MHz clk_auto)
   tiles:        "1x1"
-  top_module:   "auto_tb"           # Your top-level testbench or module (use the actual top Verilog module)
+  top_module:   "tt_um_autocorrelator"           # Your top-level testbench or module (use the actual top Verilog module)
   source_files:
     - "project.v"
 
